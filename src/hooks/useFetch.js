@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
-  const [data, setData] = useState(null);
+  const [users, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -16,7 +16,7 @@ const useFetch = (url) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();
       })
-      .then(setData)
+      .then(data=>setData(data.users))
       .catch((err) => {
         if (err.name !== "AbortError") {
           setError(err);
@@ -26,7 +26,7 @@ const useFetch = (url) => {
 
   }, [url]);
 
-  return { data, loading, error };
+  return { users, loading, error };
 };
 
 export default useFetch;
