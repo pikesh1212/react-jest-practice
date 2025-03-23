@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import React from "react";
 import useFetch from "../hooks/useFetch";
+import { ClipLoader } from "react-spinners";
 
 function UserTable() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,16 +15,23 @@ function UserTable() {
   //const users = data?.users || [];
 
   useEffect(() => {
-    console.log("loading",loading)
-  }, [loading])
+    console.log("loading", loading);
+  }, [loading]);
 
   // Filtering Users
   const filteredUsers = useMemo(() => {
-    return  users?users.filter((user) =>
-      [user.firstName, user.email, user.company.name, user.address.city].some(
-        (field) => field.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    ) : [];
+    return users
+      ? users.filter((user) =>
+          [
+            user.firstName,
+            user.email,
+            user.company.name,
+            user.address.city,
+          ].some((field) =>
+            field.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+        )
+      : [];
   }, [users, searchTerm]);
 
   // Sorting Users
@@ -51,8 +59,6 @@ function UserTable() {
       direction: prev.key === key && prev.direction === "asc" ? "desc" : "asc",
     }));
   };
-
-
 
   return (
     <div className="container">
@@ -110,7 +116,10 @@ function UserTable() {
               ))
             ) : (
               <tr>
-                <td className="text-center" colSpan="4">Loading...</td>
+                <td className="text-center" colSpan="4">
+                  {" "}
+                  <ClipLoader size={40} color="#007bff" />
+                </td>
               </tr>
             )}
           </tbody>
@@ -122,10 +131,18 @@ function UserTable() {
         {paginatedUsers.map((user) => (
           <div className="card mb-3" key={user.id}>
             <div className="card-body">
-              <p className="card-text"><strong>Name:</strong> {user.firstName}</p>
-              <p className="card-text"><strong>Email:</strong> {user.email}</p>
-              <p className="card-text"><strong>Company:</strong> {user.company.name}</p>
-              <p className="card-text"><strong>City:</strong> {user.address.city}</p>
+              <p className="card-text">
+                <strong>Name:</strong> {user.firstName}
+              </p>
+              <p className="card-text">
+                <strong>Email:</strong> {user.email}
+              </p>
+              <p className="card-text">
+                <strong>Company:</strong> {user.company.name}
+              </p>
+              <p className="card-text">
+                <strong>City:</strong> {user.address.city}
+              </p>
             </div>
           </div>
         ))}
