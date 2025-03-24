@@ -8,6 +8,7 @@ function UserTable() {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [selectedRow, setSelectedRow] = useState({});
 
   const { users, loading } = useFetch(
     "https://dummyjson.com/users/?limit=0&delay=3000"
@@ -15,8 +16,8 @@ function UserTable() {
   //const users = data?.users || [];
 
   useEffect(() => {
-    console.log("loading", loading);
-  }, [loading]);
+    console.log("users", selectedRow);
+  }, [selectedRow]);
 
   // Filtering Users
   const filteredUsers = useMemo(() => {
@@ -107,7 +108,7 @@ function UserTable() {
           <tbody>
             {!loading ? (
               paginatedUsers.map((user) => (
-                <tr key={user.id}>
+                <tr key={user.id} style={{cursor:"pointer"}} onClick={()=>setSelectedRow(user)}>
                   <td>{user.firstName}</td>
                   <td>{user.email}</td>
                   <td>{user.company.name}</td>
@@ -181,6 +182,24 @@ function UserTable() {
           ))}
         </select>
       </div>
+      {/* card for usr detail */}
+     { Object.keys(selectedRow).length > 0 && <div className="card mt-3">
+        <div className="card-body">
+          <h5 className="card-title">User Details</h5>
+          <p className="card-text">
+            <strong>Name:</strong> {selectedRow.firstName +" "+ selectedRow.lastName}
+          </p>
+          <p className="card-text">
+            <strong>Email:</strong> {selectedRow.email}
+          </p>
+          <p className="card-text">
+            <strong>Address :</strong> {selectedRow.address?.address}
+          </p>
+          <p className="card-text">
+            <strong>Company Details:</strong> {selectedRow.company?.title+" "+selectedRow.company.department}
+          </p>
+        </div>
+      </div>}
     </div>
   );
 }
