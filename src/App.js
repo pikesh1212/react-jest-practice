@@ -3,8 +3,8 @@ import { Routes, Route, Link } from "react-router";
 import TodoList from "./components/TodoList";
 import ShoppingCart from "./components/ShoppingCartComponent/ShoppingCart";
 import UserTable from "./components/UserTable";
-import ExpenseTracker from "./components/ExpenseTracker";
 import Home from "./components/Home";
+import ExpenseTracker from "./components/ExpenseTracker/ExpenseTracker";
 
 
 function App() {
