@@ -1,5 +1,5 @@
+import { useCart } from "./CartContext";
 import CartDrawer from "./CartDrawer";
-import { useCart } from "./ShoppingCart";
 
 function Header() {
   const { cart, isCartOpen, setIsCartOpen } = useCart();

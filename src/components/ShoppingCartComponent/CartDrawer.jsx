@@ -1,4 +1,4 @@
-import { useCart } from "./ShoppingCart";
+import { useCart } from "./CartContext";
 
 function CartDrawer() {
     const { cart, removeFromCart, updateQuantity, setIsCartOpen } = useCart();
