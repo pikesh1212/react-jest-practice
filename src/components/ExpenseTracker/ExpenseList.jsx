@@ -9,7 +9,7 @@ function ExpenseList() {
       <div style={{display:"flex", justifyContent:"space-between"}}>
         <h2 className="mb-3">Expense List</h2>
         <h3 className="mt-3">
-          Total: $
+          Total: ₹ 
           {expenses?.reduce((acc, expense) => acc + Number(expense.amount), 0)}
         </h3>
       </div>
