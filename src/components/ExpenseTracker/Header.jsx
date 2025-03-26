@@ -3,6 +3,7 @@ import { useExpense } from "./ExpenseContext";
 import AddExpenseForm from "./AddExpenseForm";
 import ExpenseList from "./ExpenseList";
 import { Modal, Button } from "react-bootstrap";
+import ExpenseSummary from "./ExpenseSummary";
 
 function Header() {
   const { isFormOpen ,handleAddExpButton, handleClose} = useExpense();
@@ -43,6 +44,7 @@ function Header() {
           </Modal.Footer> */}
         </Modal>
       </div>
+      <ExpenseSummary/>
       <ExpenseList />
     </>
   );
