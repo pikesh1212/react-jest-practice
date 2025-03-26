@@ -14,6 +14,7 @@ function ExpenseList() {
         </h3>
       </div>
       <hr />
+      <div className="table-responsive d-none d-md-block">
       <table className="table table-striped">
         <thead>
           <tr>
@@ -53,6 +54,44 @@ function ExpenseList() {
             )):<tr><td colSpan={5} className="text-center">No Expenses Found</td></tr>}
         </tbody>
       </table>
+      </div>
+      <div className="d-md-none">
+        {expenses.map((expense) => (
+          <div className="card mb-3" key={expense.id}>
+            <div className="card-body">
+              <p className="card-text">
+                <strong>Date:</strong> {expense.date}
+              </p>
+              <p className="card-text">
+                <strong>Category:</strong> {expense.category}
+              </p>
+              <p className="card-text">
+                <strong>Amount:</strong> ₹{expense.amount}
+              </p>
+              <p className="card-text">
+                <strong>Description:</strong> {expense.description}
+              </p>
+              <div className="d-flex justify-content-between">
+                <button
+                  className="btn btn-warning btn-sm me-2"
+                  onClick={() => {
+                    handleEditExpense(expense);
+                    handleShow();
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => removeExpense(expense.id)}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
