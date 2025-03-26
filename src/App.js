@@ -21,15 +21,15 @@ function App() {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary mb-4">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">MyApp</Link>
+          <Link className="navbar-brand" to="/">Home</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/">Home</Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/todo">Todo List</Link>
               </li>
@@ -40,7 +40,7 @@ function App() {
                 <Link className="nav-link" to="/cart">Shopping Cart</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/expensetracker">Expenses</Link>
+                <Link className="nav-link" to="/expensetracker">Expense Tracker</Link>
               </li>
             </ul>
             <button className="btn btn-outline-primary" onClick={toggleTheme}>
