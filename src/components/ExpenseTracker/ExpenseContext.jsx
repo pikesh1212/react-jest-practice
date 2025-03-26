@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import dummyData from "../../data/expenseDummy.json";
 const expenseContext = createContext();
 
 export function useExpense() {
@@ -45,8 +46,13 @@ export function ExpenseProvider({ children }) {
     setEditingExpense(null);
     setFormOpen(true);
   };
+  const handleLoadDummy = () => {
+    setExpenses(dummyData);
+  };
+  const clearDummyData = () => {
+    setExpenses([]);
+  };
 
-  
   const handleClose = () => setFormOpen(false);
   const handleShow = () => setFormOpen(true);
 
@@ -64,7 +70,9 @@ export function ExpenseProvider({ children }) {
         isFormOpen,
         handleShow,
         handleClose,
-        handleAddExpButton
+        handleAddExpButton,
+        handleLoadDummy,
+        clearDummyData
       }}
     >
       {children}

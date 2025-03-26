@@ -6,7 +6,15 @@ import { Modal, Button } from "react-bootstrap";
 import ExpenseSummary from "./ExpenseSummary";
 
 function Header() {
-  const { isFormOpen ,handleAddExpButton, handleClose} = useExpense();
+  const {
+    isFormOpen,
+    handleAddExpButton,
+    handleClose,
+    handleLoadDummy,
+    clearDummyData,
+    expenses,
+    editingExpense,
+  } = useExpense();
 
   return (
     <>
@@ -18,9 +26,32 @@ function Header() {
         }}
       >
         <h1>Expense Tracker</h1>
-        <Button variant="primary" onClick={handleAddExpButton}>
-          Add Expense
-        </Button>
+        <div>
+          <Button
+            className="btn btn-sm"
+            variant="primary"
+            onClick={handleAddExpButton}
+          >
+            Add Expense
+          </Button>
+          {expenses.length ? (
+            <Button
+              className="btn btn-sm ms-2"
+              variant="danger"
+              onClick={clearDummyData}
+            >
+              Clear Data
+            </Button>
+          ) : (
+            <Button
+              className="btn btn-sm ms-2"
+              variant="primary"
+              onClick={handleLoadDummy}
+            >
+              Load Data
+            </Button>
+          )}
+        </div>
       </div>
 
       <div>
@@ -32,7 +63,12 @@ function Header() {
           onHide={handleClose}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Add Expense</Modal.Title>
+            <Modal.Title>
+              {" "}
+              <h3 className="mb-2">
+                {editingExpense ? "Edit Expense" : "Add Expense"}
+              </h3>
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <AddExpenseForm />
@@ -44,7 +80,7 @@ function Header() {
           </Modal.Footer> */}
         </Modal>
       </div>
-      <ExpenseSummary/>
+      {expenses.length > 0 && <ExpenseSummary />}
       <ExpenseList />
     </>
   );

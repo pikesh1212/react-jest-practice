@@ -59,10 +59,8 @@ const ExpenseSummary = () => {
 
   return (
     <div className="container text-center">
-      <div
-        className="card p-4 mb-4"
-      >
-        <div style={{ display: "flex", justifyContent: "space-around" }}>
+      <div className="card p-4 mb-4">
+        <div className="d-flex flex-md-row flex-column" style={{ justifyContent: "space-around" }}>
           <div style={{ width: "100%" }}>
             <h5 className="mt-4">Category-wise Expenses</h5>
             <ResponsiveContainer width="100%" height={300}>

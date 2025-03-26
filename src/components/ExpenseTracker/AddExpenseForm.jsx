@@ -55,9 +55,6 @@ function AddExpenseForm() {
 
   return (
     <div className="card p-4 shadow-sm mb-4">
-      <h2 className="mb-3">
-        {editingExpense ? "Edit Expense" : "Add Expense"}
-      </h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label">Date</label>

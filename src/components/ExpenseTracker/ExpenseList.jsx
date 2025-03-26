@@ -7,8 +7,8 @@ function ExpenseList() {
   return (
     <div className="card p-4 shadow-sm">
       <div style={{display:"flex", justifyContent:"space-between"}}>
-        <h2 className="mb-3">Expense List</h2>
-        <h3 className="mt-3">
+        <h3 className="mb-3">Expense List</h3>
+        <h3 className="mb-3">
           Total: ₹ 
           {expenses?.reduce((acc, expense) => acc + Number(expense.amount), 0)}
         </h3>
@@ -25,7 +25,7 @@ function ExpenseList() {
           </tr>
         </thead>
         <tbody>
-          {expenses &&
+          {expenses.length>0 ?
             expenses.map((expense) => (
               <tr key={expense.id}>
                 <td>{expense.date}</td>
@@ -50,7 +50,7 @@ function ExpenseList() {
                   </button>
                 </td>
               </tr>
-            ))}
+            )):<tr><td colSpan={5} className="text-center">No Expenses Found</td></tr>}
         </tbody>
       </table>
     </div>
