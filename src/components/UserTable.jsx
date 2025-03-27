@@ -113,7 +113,7 @@ function UserTable() {
               ))
             ) : (
               <tr>
-                <td className="text-center" colSpan="4">
+                <td className="text-center" colSpan="4" data-testid="loader">
                   {" "}
                   <ClipLoader size={40} color="#007bff" />
                 </td>
@@ -126,7 +126,7 @@ function UserTable() {
       {/* Card View for Small Screens */}
       <div className="d-md-none">
         {paginatedUsers.map((user) => (
-          <div className="card mb-3" key={user.id}>
+          <div className="card mb-3" key={user.id} data-testid="userCard">
             <div className="card-body">
               <p className="card-text">
                 <strong>Name:</strong> {user.firstName}
@@ -179,7 +179,7 @@ function UserTable() {
         </select>
       </div>
       {/* card for usr detail */}
-     { Object.keys(selectedRow).length > 0 && <div className="card mt-3">
+     { Object.keys(selectedRow).length > 0 && <div className="card mt-3" data-testid="userDisplayCard">
         <div className="card-body">
           <h5 className="card-title">User Details</h5>
           <p className="card-text">
