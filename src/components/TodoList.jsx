@@ -90,18 +90,21 @@ const filteredTodos = todos.filter((todo) => {
       <div className="mt-3">
         <button
           className="btn btn-secondary mx-1"
+          name="All"
           onClick={() => setFilter("all")}
         >
           All
         </button>
         <button
           className="btn btn-secondary mx-1"
+          name="Active"
           onClick={() => setFilter("active")}
         >
           Active
         </button>
         <button
           className="btn btn-secondary mx-1"
+          name="Completed"
           onClick={() => setFilter("completed")}
         >
           Completed

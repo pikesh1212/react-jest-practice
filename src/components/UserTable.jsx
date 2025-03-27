@@ -15,10 +15,6 @@ function UserTable() {
   );
   //const users = data?.users || [];
 
-  useEffect(() => {
-    console.log("users", selectedRow);
-  }, [selectedRow]);
-
   // Filtering Users
   const filteredUsers = useMemo(() => {
     return users
