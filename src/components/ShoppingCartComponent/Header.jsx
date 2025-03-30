@@ -7,9 +7,23 @@ function Header() {
 
   return (
     <div>
-      <button className="btn btn-primary mb-4" onClick={() => setIsCartOpen(!isCartOpen)}>Cart: {totalItems} items</button>
-      {isCartOpen && <CartDrawer />}
+       <h1 className="text-center">Shopping App</h1>
+       <hr />
+      {isCartOpen ? (
+        <CartDrawer />
+      ) : (
+        <div>
+          <div className="text-end">
+            <button
+              className="btn btn-primary mb-4"
+              onClick={() => setIsCartOpen(!isCartOpen)}
+            >
+              Cart: {totalItems} items
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-export default Header
+export default Header;

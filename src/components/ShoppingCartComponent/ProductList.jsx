@@ -69,7 +69,7 @@ function ProductList() {
   }
 
   return (
-    <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+    <div className="product-list" style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
       {products.map((product) => (
         <div
           key={product.id}
