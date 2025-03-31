@@ -63,7 +63,6 @@ describe("TodoList Component", () => {
 
     const deleteButton = screen.getAllByText("Delete")[0];
     fireEvent.click(deleteButton);
-    console.log(screen.queryByText("Test Delete"));
 
     expect(screen.queryByText("Test Delete")).not.toBeInTheDocument();
   });

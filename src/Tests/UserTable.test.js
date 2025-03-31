@@ -222,7 +222,6 @@ describe("UserTable", () => {
     render(<UserTable />);
 
     const firstRow = screen.getAllByRole("row")[1];
-    console.log("Selected row element:", firstRow.outerHTML);
     await act(async () => {
       firstRow.click();
     });

@@ -57,7 +57,7 @@ function CartDrawer() {
                   >
                     -
                   </button>
-                  <span> {item.quantity} </span>
+                  <span data-testid="quantity"> {item.quantity} </span>
                   <button
                     data-testid="increment"
                     className="btn btn-sm btn-danger"
@@ -67,6 +67,7 @@ function CartDrawer() {
                   </button>
                 </div>
                 <button
+                  data-testid="remove"
                   className="btn btn-danger"
                   onClick={() => removeFromCart(item.id)}
                 >
