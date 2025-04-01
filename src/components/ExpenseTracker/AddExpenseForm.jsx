@@ -55,10 +55,11 @@ function AddExpenseForm() {
 
   return (
     <div className="card p-4 shadow-sm mb-4">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="popup-form">
         <div className="mb-3">
-          <label className="form-label">Date</label>
+          <label className="form-label">Datee</label>
           <input
+            data-testid="date-input"
             type="date"
             className="form-control"
             value={date}
@@ -69,6 +70,7 @@ function AddExpenseForm() {
         <div className="mb-3">
           <label className="form-label">Category</label>
           <select
+            data-testid="category-input"
             className="form-select"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -87,6 +89,7 @@ function AddExpenseForm() {
         <div className="mb-3">
           <label className="form-label">Amount</label>
           <input
+            data-testid="amount-input"
             type="number"
             className="form-control"
             value={amount}
@@ -99,13 +102,18 @@ function AddExpenseForm() {
         <div className="mb-3">
           <label className="form-label">Description</label>
           <input
+            data-testid="description-input"
             type="text"
             className="form-control"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-primary w-100">
+        <button
+          data-testid="submit-button"
+          type="submit"
+          className="btn btn-primary w-100"
+        >
           {editingExpense ? "Update" : "Submit"}
         </button>
       </form>

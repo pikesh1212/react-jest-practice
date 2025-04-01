@@ -35,6 +35,7 @@ function ExpenseList() {
                 <td>{expense.description}</td>
                 <td>
                   <button
+                    data-testid="edit-button"
                     className="btn btn-warning btn-sm me-2"
                     onClick={() => {
                       handleEditExpense(expense);
@@ -44,6 +45,7 @@ function ExpenseList() {
                     Edit
                   </button>
                   <button
+                    data-testid="delete-button"
                     className="btn btn-danger btn-sm"
                     onClick={() => removeExpense(expense.id)}
                   >
